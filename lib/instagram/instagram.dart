@@ -1,7 +1,9 @@
 import 'package:beamer/beamer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterfire_ui/i10n.dart';
+import 'package:instagram/instagram/modal/service/auth/auth_service.dart';
 import 'package:instagram/instagram/router/location_builder.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class InstagramRoot extends StatefulWidget {
   const InstagramRoot({Key? key}) : super(key: key);
@@ -22,7 +24,7 @@ class _InstagramRootState extends State<InstagramRoot> {
     guards: [
       BeamGuard(
         pathPatterns: ['/home'],
-        check: (ctx, location) => true,
+        check: (ctx, location) => ctx.read<AuthService>().isAuthenticated,
         beamToNamed: (_, __) => '/login',
       ),
     ],
