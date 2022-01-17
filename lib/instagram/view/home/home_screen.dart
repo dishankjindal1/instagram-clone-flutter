@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:instagram/instagram/view/home/clock_screen/clock_screen.dart';
 import 'package:instagram/instagram/view/home/messages_screen/messages_screen.dart';
 import 'package:instagram/instagram/view/home/post_feed_screen/post_feed_screen.dart';
 import 'package:instagram/instagram/view/home/utils/home_app_bar.dart';
@@ -32,7 +31,6 @@ class _HomeScreenState extends State<HomeScreen> {
           bottomNavigationBar: HomeBottomNavBar(),
         ),
         MessagesScreen(),
-        ClockScreen(),
       ],
     );
   }

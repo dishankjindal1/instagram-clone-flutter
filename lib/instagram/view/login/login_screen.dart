@@ -2,6 +2,7 @@ import 'package:beamer/beamer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterfire_ui/auth.dart';
 import 'package:instagram/instagram/constants.dart';
+import 'package:instagram/instagram/view/login/clock/clock_widget.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -36,6 +37,9 @@ class LoginScreen extends StatelessWidget {
             const Align(alignment: Alignment(0.45, 0.25), child: Text("Clone")),
           ],
         );
+      },
+      footerBuilder:(context, action) {
+        return const ClockView();
       },
       actions: [
         AuthStateChangeAction((authCtx, authState) {

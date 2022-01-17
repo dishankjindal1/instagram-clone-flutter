@@ -2,31 +2,6 @@ import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
 
-class ClockScreen extends StatefulWidget {
-  const ClockScreen({Key? key}) : super(key: key);
-
-  static Widget initPage(BuildContext context) {
-    return const Scaffold(
-      body: ClockScreen(),
-    );
-  }
-
-  @override
-  _ClockScreenState createState() => _ClockScreenState();
-}
-
-class _ClockScreenState extends State<ClockScreen> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        alignment: Alignment.center,
-        child: const ClockView(),
-      ),
-    );
-  }
-}
-
 class ClockView extends StatefulWidget {
   const ClockView({Key? key}) : super(key: key);
 
@@ -35,7 +10,6 @@ class ClockView extends StatefulWidget {
 }
 
 class _ClockViewState extends State<ClockView> {
-
   @override
   void initState() {
     super.initState();
@@ -46,13 +20,33 @@ class _ClockViewState extends State<ClockView> {
 
   @override
   Widget build(BuildContext context) {
-    return Transform.rotate(
-      angle: -pi / 2,
-      child: SizedBox(
-        width: 300,
-        height: 300,
-        child: CustomPaint(
-          painter: ClockPainter(),
+    var timeData = DateTime.now();
+    var timeHours = ('${timeData.hour % 12}').padLeft(2, '0');
+    var timeMinutes = ('${timeData.minute}').toString().padLeft(2, '0');
+    var timeSeconds = ('${timeData.second}').toString().padLeft(2, '0');
+    var timePeriod = timeData.hour > 12 ? 'PM' : 'AM';
+    var timeMessage = timeHours +
+        " : " +
+        timeMinutes +
+        " : " +
+        timeSeconds +
+        " " +
+        timePeriod;
+    return Container(
+            alignment: Alignment.center,
+      margin: const EdgeInsets.only(top: 50),
+
+      child: Tooltip(
+        message: timeMessage,
+        child: Transform.rotate(
+          angle: -pi / 2,
+          child: SizedBox(
+            width: 300,
+            height: 300,
+            child: CustomPaint(
+              painter: ClockPainter(),
+            ),
+          ),
         ),
       ),
     );
@@ -60,7 +54,7 @@ class _ClockViewState extends State<ClockView> {
 }
 
 class ClockPainter extends CustomPainter {
-  var timeData = DateTime.now();
+  DateTime timeData = DateTime.now();
 
   @override
   void paint(Canvas canvas, Size size) async {
