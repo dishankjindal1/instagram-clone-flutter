@@ -115,8 +115,8 @@ class ClockPainter extends CustomPainter {
     double minHandY = centerX + 65 * sin(timeData.minute * 6 * pi / 180);
     canvas.drawLine(center, Offset(minHandX, minHandY), clockMinutesHandPaint);
 
-    double secHandX = centerX + 80 * cos(timeData.second * 6 * pi / 180);
-    double secHandY = centerX + 80 * sin(timeData.second * 6 * pi / 180);
+    double secHandX = centerX + 90 * cos(timeData.second * 6 * pi / 180);
+    double secHandY = centerX + 90 * sin(timeData.second * 6 * pi / 180);
     canvas.drawLine(center, Offset(secHandX, secHandY), clockSecondsHandPaint);
     // top most
     canvas.drawCircle(center, 15, clockCenterDotPaint);
