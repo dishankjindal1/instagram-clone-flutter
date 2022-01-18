@@ -6,4 +6,9 @@ class ImageAssets {
   static String logo = 'assets/images/logo.png';
   static String send = 'assets/images/send.png';
   static String share = 'assets/images/share.png';
+  static String heart = 'assets/images/heart.png';
+}
+
+class NetworkAssets {
+  static String person = 'http://placeimg.com/640/480/nightlife';
 }
