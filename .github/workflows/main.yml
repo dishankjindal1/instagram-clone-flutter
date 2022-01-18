@@ -49,4 +49,3 @@ jobs:
           track: beta
           status: completed
           mappingFile: build/app/outputs/mapping/release/mapping.txt
-          whatsNewDirectory: whatsNewDirectory/whatsnew
