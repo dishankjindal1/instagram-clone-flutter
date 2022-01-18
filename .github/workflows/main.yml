@@ -1,5 +1,5 @@
 name: Flutter Build and Deploy to Play Store
-on: 
+on:
   push:
     tags:
       - v*
@@ -44,8 +44,9 @@ jobs:
         with:
           serviceAccountJson: service_account.json
           packageName: dev.dishank.instagram
+          releaseName: Release 3 (0.0.3)
           releaseFiles: build/app/outputs/bundle/release/app-release.aab
           track: beta
           status: completed
           mappingFile: build/app/outputs/mapping/release/mapping.txt
-          whatsNewDirectory: distribution/whatsnew
+          whatsNewDirectory: whatsNewDirectory/whatsnew
